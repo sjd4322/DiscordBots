@@ -2,13 +2,27 @@ const auth = require('./auth.json');
 
 //Discord connect
 const Discord = require('discord.js')
-const client = new Discord.Client()
+const client = new Discord.Client();
 
 //Connect to mongo and create a connection
 const MongoClient = require('mongodb').MongoClient;
 const uri = require('./mongoConnection.json');
 const mongoClient = new MongoClient(uri.connectionString, { useNewUrlParser: true });
-const connection = mongoClient.connect()
+const connection = mongoClient.connect();
+
+client.on("presenceUpdate", (oldUser, newUser) => {
+    //Exclude title changes and typing
+    if(oldUser.presence.game != null && oldUser.presence.game.streaming 
+        && newUser.presence.clientStatus !== "desktop"
+        && oldUser.presence.clientStatus !== "desktop"
+        || oldUser.guild.name !== "Clavaats Server") return;
+    
+    if(oldUser.displayName === "Clavaat" && newUser.presence != null){
+        if(newUser.presence.game != null && newUser.presence.game.streaming){
+            client.channels.get("617196134536052737").send("@everyone Clavaat has started streaming! https://www.twitch.tv/clavaat");               
+        }
+    }
+});
 
 client.on("message", (message) => {
     if(message.channel.name === "recommendations"){
