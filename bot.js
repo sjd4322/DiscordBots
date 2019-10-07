@@ -6,8 +6,8 @@ const client = new Discord.Client();
 
 //Connect to mongo and create a connection
 const MongoClient = require('mongodb').MongoClient;
-const uri = require('./mongoConnection.json');
-const mongoClient = new MongoClient(uri.connectionString, { useNewUrlParser: true });
+//const uri = process.env.connectionString;
+const mongoClient = new MongoClient(process.env.connectionString, { useNewUrlParser: true });
 const connection = mongoClient.connect();
 
 client.on("presenceUpdate", (oldUser, newUser) => {
@@ -53,4 +53,4 @@ client.on("message", (message) => {
     }
 });
 
-client.login(auth.token);
+client.login(process.env.token);
