@@ -1,4 +1,4 @@
-const auth = require('./auth.json');
+//const auth = require('./auth.json');
 
 //Discord connect
 const Discord = require('discord.js')
