@@ -12,5 +12,9 @@
         "libsodium": "^0.7.5",
         "mongodb": "^3.3.2",
         "opusscript": "0.0.7"
-    }
+    },
+    "scripts": {
+        "start": "bot.js"
+    },
+    "debug": "node --inspect-brk bot.js"
 }
