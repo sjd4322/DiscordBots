@@ -15,7 +15,7 @@ http.createServer(function (request, response) {
     const mongoClient = new MongoClient(process.env.connectionString, { useNewUrlParser: true });
     const connection = mongoClient.connect(function(err){
         if(err != null){
-            console.log(err);
+            console.log("THE ERROR IS HERE: " + err);
         }
 
     });
