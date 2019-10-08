@@ -1,4 +1,5 @@
 //const auth = require('./auth.json');
+console.log("LOOK HERE!!!!!!   " + process.env.connectionString);
 
 //Discord connect
 const Discord = require('discord.js')
