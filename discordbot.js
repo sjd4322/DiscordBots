@@ -6,6 +6,7 @@ const client = new Discord.Client();
 
 //Connect to mongo and create a connection
 const MongoClient = require('mongodb').MongoClient;
+console.log("LOOK HERE!!!!!!   " + process.env.connectionString);
 //const uri = process.env.connectionString;
 const mongoClient = new MongoClient(process.env.connectionString, { useNewUrlParser: true });
 const connection = mongoClient.connect();
