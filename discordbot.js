@@ -1,5 +1,6 @@
 //const auth = require('./auth.json');
-console.log("LOOK HERE!!!!!!   " + process.env.connectionString);
+require('dotenv').config();
+const port = process.env.PORT || 3000;
 
 //Discord connect
 const Discord = require('discord.js')
@@ -7,7 +8,6 @@ const client = new Discord.Client();
 
 //Connect to mongo and create a connection
 const MongoClient = require('mongodb').MongoClient;
-console.log("LOOK HERE!!!!!!   " + process.env.connectionString);
 //const uri = process.env.connectionString;
 const mongoClient = new MongoClient(process.env.connectionString, { useNewUrlParser: true });
 const connection = mongoClient.connect();
@@ -56,3 +56,5 @@ client.on("message", (message) => {
 });
 
 client.login(process.env.token);
+
+app.listen(port);
