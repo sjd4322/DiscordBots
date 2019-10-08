@@ -13,7 +13,12 @@ http.createServer(function (request, response) {
     const MongoClient = require('mongodb').MongoClient;
     //const uri = process.env.connectionString;
     const mongoClient = new MongoClient(process.env.connectionString, { useNewUrlParser: true });
-    const connection = mongoClient.connect();
+    const connection = mongoClient.connect(function(err){
+        if(err != null){
+            console.log(err);
+        }
+
+    });
 
     client.on("presenceUpdate", (oldUser, newUser) => {
         //Exclude title changes and typing
