@@ -14,7 +14,7 @@
         "opusscript": "0.0.7"
     },
     "scripts": {
-        "start": "bot.js"
+        "start": "discordbot.js"
     },
     "debug": "node --inspect-brk server.js"
 }
