@@ -56,5 +56,3 @@ client.on("message", (message) => {
 });
 
 client.login(process.env.token);
-
-app.listen(port);
