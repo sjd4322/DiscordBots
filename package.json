@@ -2,7 +2,7 @@
     "name": "clav-bot",
     "version": "1.0.0",
     "description": "Does a bunch of stuff",
-    "main": "bot.js",
+    "main": "discordbot.js",
     "author": "Steve",
     "dependencies": {
         "aws-sdk": "^2.544.0",
@@ -16,5 +16,5 @@
     "scripts": {
         "start": "bot.js"
     },
-    "debug": "node --inspect-brk bot.js"
+    "debug": "node --inspect-brk server.js"
 }
