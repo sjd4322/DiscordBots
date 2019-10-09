@@ -12,7 +12,6 @@ http.createServer(function (request, response) {
     //Connect to mongo and create a connection
     const MongoClient = require('mongodb').MongoClient;
     //const uri = process.env.connectionString;
-    console.log("LOOK HERE!!!!!    " + process.env.MONGODB_URI);
     const mongoClient = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
     const connection = mongoClient.connect();
 
@@ -36,7 +35,7 @@ http.createServer(function (request, response) {
                 var game = message.content.substr(message.content.indexOf(" ") + 1);
                 const connect = connection;
                 connect.then(() => {
-                    var dbo = mongoClient.db("StevesBotDb").collection("Recommendations");
+                    var dbo = mongoClient.db("heroku_t9z3dvfz").collection("Recommendations");
                     dbo.insert({ "game" : game, "suggestedBy" : message.author.username });
                     message.channel.send(message.author.username + ", your game has been added to the list!");    
                 });
@@ -44,7 +43,7 @@ http.createServer(function (request, response) {
             if(message.content === "!listrec"){
                 const connect = connection;
                 connect.then(() => {
-                    var dbo = mongoClient.db("StevesBotDb").collection("Recommendations");
+                    var dbo = mongoClient.db("heroku_t9z3dvfz").collection("Recommendations");
                     dbo.find().toArray(function (err, result){
                         var listString = "```";
                         result.forEach(function(item){
