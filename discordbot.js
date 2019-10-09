@@ -12,6 +12,7 @@ http.createServer(function (request, response) {
     //Connect to mongo and create a connection
     const MongoClient = require('mongodb').MongoClient;
     //const uri = process.env.connectionString;
+    console.log("LOOK HERE!!!!!    " + process.env.MONGODB_URI);
     const mongoClient = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
     const connection = mongoClient.connect();
 
