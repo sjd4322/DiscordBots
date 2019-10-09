@@ -12,13 +12,8 @@ http.createServer(function (request, response) {
     //Connect to mongo and create a connection
     const MongoClient = require('mongodb').MongoClient;
     //const uri = process.env.connectionString;
-    const mongoClient = new MongoClient(process.env.connectionString, { useNewUrlParser: true });
-    const connection = mongoClient.connect(function(err){
-        if(err != null){
-            console.log("THE ERROR IS HERE: " + err);
-        }
-
-    });
+    const mongoClient = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
+    const connection = mongoClient.connect();
 
     client.on("presenceUpdate", (oldUser, newUser) => {
         //Exclude title changes and typing
