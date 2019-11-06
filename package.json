@@ -12,7 +12,8 @@
         "dotenv": "^8.1.0",
         "libsodium": "^0.7.5",
         "mongodb": "^3.3.2",
-        "opusscript": "0.0.7"
+        "opusscript": "0.0.7",
+        "request": "^2.88.0"
     },
     "scripts": {
         "start": "node discordbot.js"
